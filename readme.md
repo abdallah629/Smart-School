@@ -1,123 +1,131 @@
-## **Laravel School Management System** 
+Système de Gestion Scolaire Laravel
 
-**LAVSMS** is developed for educational institutions like schools and colleges built on Laravel 8
+Smart Education est développé pour les institutions éducatives telles que les écoles privée ou public, basé sur Laravel .
 
-**SCREENSHOTS** 
+CAPTURES D’ÉCRAN
 
-**Dashboard**
-<img src="https://i.ibb.co/D4T0z6T/dashboard.png" alt="dashboard" border="0">
-
-**Login**
+Tableau de bord
+<img src="https://i.ibb.co" alt="dashboard" border="0">
+Connexion
 <img src="https://i.ibb.co/Rh1Bfwk/login.png" alt="login" border="0">
 
-**Student Marksheet**
+Relevé de notes de l’élève
 <img src="https://i.ibb.co/GCgv5ZR/marksheet.png" alt="marksheet" border="0">
 
-**System Settings**
+Paramètres du système
 <img src="https://i.ibb.co/Kmrhw69/system-settings.png" alt="system-settings" border="0">
 
-**Print Marksheet**
-<div style="clear: both"> </div>
-<img src="https://i.ibb.co/5c1GHCj/capture-20210530-115521-crop.png" alt="print-marksheet">
+Impression du relevé de notes
 
-**Print Tabulation Sheet & Marksheet**
+<div style="clear: both"> </div> <img src="https://i.ibb.co/5c1GHCj/capture-20210530-115521-crop.png" alt="print-marksheet">
+
+Impression de la feuille de tabulation & relevé de notes
 <img src="https://i.ibb.co/QmscPfn/capture-20210530-115802.png" alt="tabulation-sheet" border="0">
 
-<hr />  
+Types de comptes utilisateurs (7 au total) :
 
-There are 7 types of user accounts. They include:
- 
-Administrators (Super Admin & Admin)
-- Librarian
-- Accountant
-- Teacher
-- Student
-- Parent
+Administrateurs (Super Admin & Admin)
 
-**Requirements** 
+Bibliothécaire
 
-Check Laravel 8 Requirements https://laravel.com/docs/8.x
+Comptable
 
-**Installation**
-- Install dependencies (composer install)
-- Set Database Credentials & App Settings in dotenv file (.env)
-- Migrate Database (php artisan migrate)
-- Database seed (php artisan db:seed)
+Enseignant
 
-**Login Credentials**
-After seeding. Login details as follows:
+Élève
 
-| Account Type  | Username | Email | Password |
-| ------------- | -------- | ----- | -------- |
-| Super Admin | cj | cj@cj.com | cj |
-|  Admin | admin | admin@admin.com | cj |
-|  Teacher | teacher | teacher@teacher.com | cj |
-|  Parent | parent | parent@parent.com | cj |
-|  Accountant | accountant | accountant@accountant.com | cj |
-|  Student | student | student@student.com | cj |
+Parent
 
-#### **FUNCTIONS OF ACCOUNTS** 
+Fonctions des comptes
 
-**-- SUPER ADMIN**
-- Only Super Admin can delete any record
-- Create any user account
- 
-**-- Administrators (Super Admin & Admin)**
+-- SUPER ADMIN
 
-- Manage students class/sections
-- View marksheet of students
-- Create, Edit and manage all user accounts & profiles
-- Create, Edit and manage Exams & Grades
-- Create, Edit and manage Subjects
-- Manage noticeboard of school
-- Notices are visible in calendar in dashboard
-- Edit system settings
-- Manage Payments & fees
+Seul le Super Admin peut supprimer n’importe quel enregistrement
 
-**-- ACCOUNTANT**
-- Manage Payments & fees
-- Print Payment Receipts
+Créer tout type de compte utilisateur
 
-**-- LIBRARIAN**
-- Manage Books in the Library
+-- Administrateurs (Super Admin & Admin)
 
-**-- TEACHER**
-- Manage Own Class/Section
-- Manage Exam Records for own Subjects
-- Manage Timetable if Assigned as Class Teacher
-- Manage own profile
-- Upload Study Materials
+Gérer les classes/sections des élèves
 
-**-- STUDENT**
-- View teacher profile
-- View own class subjects
-- View own marks and class timetable
-- View Payments
-- View library and book status
-- View noticeboard and school events in calendar
-- Manage own profile
+Consulter le relevé de notes des élèves
 
-**-- PARENT**
-- View teacher profile
-- View own child's marksheet (Download/Print PDF)
-- View own child's Timetable
-- View own child's payments
-- View noticeboard and school events in calendar
-- Manage own profile
+Créer, modifier et gérer tous les comptes et profils utilisateurs
 
-### **Contributing**
+Créer, modifier et gérer les examens et les notes
 
-Your Contributions & suggestions are welcomed. Please use Pull Request
+Créer, modifier et gérer les matières
 
-### **Security Vulnerabilities**
+Gérer le tableau d’affichage de l’école
 
-If you discover a security vulnerability within LAV_SMS, please send an e-mail to CJ Inspired via cjay.pub@gmail.com. All security vulnerabilities will be promptly addressed.
+Les avis apparaissent dans le calendrier du tableau de bord
 
-***Please Note*** that some sections of this project are in the work-in-progress stage and would be updated soon. These include:
+Modifier les paramètres du système
 
-- The Noticeboard/Calendar in the Dashboard Area
-- Librarian/Acountant user pages
-- Library Resources/Study Materials Upload for Students
+Gérer les paiements et frais de scolarité
 
-### **Contact [CJ INSPIRED]**
-- Phone : +2347068149559
+-- COMPTABLE
+
+Gérer les paiements et frais
+
+Imprimer les reçus de paiement
+
+-- BIBLIOTHÉCAIRE
+
+Gérer les livres de la bibliothèque
+
+-- ENSEIGNANT
+
+Gérer sa propre classe/section
+
+Gérer les relevés de notes de ses matières
+
+Gérer l’emploi du temps si désigné comme professeur principal
+
+Gérer son propre profil
+
+Mettre en ligne des supports pédagogiques
+
+-- ÉLÈVE
+
+Consulter le profil de l’enseignant
+
+Consulter les matières de sa classe
+
+Consulter ses notes et l’emploi du temps de sa classe
+
+Consulter ses paiements
+
+Consulter la bibliothèque et l’état des livres
+
+Consulter le tableau d’affichage et les événements scolaires dans le calendrier
+
+Gérer son propre profil
+
+-- PARENT
+
+Consulter le profil des enseignants
+
+Consulter le relevé de notes de son enfant (Téléchargement/Impression PDF)
+
+Consulter l’emploi du temps de son enfant
+
+Consulter les paiements de son enfant
+
+Consulter le tableau d’affichage et les événements scolaires dans le calendrier
+
+Gérer son propre profil
+
+À noter
+
+Certaines sections du projet sont encore en développement et seront mises à jour prochainement :
+
+Tableau d’affichage / Calendrier dans le tableau de bord
+
+Pages des utilisateurs Bibliothécaire/Comptable
+
+Ressources de bibliothèque / Téléchargement des supports pédagogiques pour les élèves
+
+Contact [Abdoulaye CAMARA]
+
+Téléphone : +224 629 72 10 67
