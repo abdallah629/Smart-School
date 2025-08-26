@@ -125,7 +125,3 @@ Tableau d’affichage / Calendrier dans le tableau de bord
 Pages des utilisateurs Bibliothécaire/Comptable
 
 Ressources de bibliothèque / Téléchargement des supports pédagogiques pour les élèves
-
-Contact [Abdoulaye CAMARA]
-
-Téléphone : +224 629 72 10 67
