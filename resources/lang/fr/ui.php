@@ -285,7 +285,7 @@ return [
     'email' => 'Email',
     'action' => 'Action',
     'view_profile' => 'Voir Profil',
-    'marksheet' => 'Relevé de Notes',
+    // 'marksheet' => 'Bulletin',
     //
     'settings' => 'Paramètres',
     'pins' => 'Codes',
@@ -837,7 +837,7 @@ return [
     'edit' => 'Modifier',
     'reset_password' => 'Réinitialiser le mot de passe',
     'not_graduated' => 'Non diplômé',
-    'marksheet' => 'Relevé de notes',
+    // 'marksheet' => 'Bulletin',
     'delete' => 'Supprimer',
     //
     'student_information' => 'Informations sur l\'étudiant',
@@ -855,7 +855,7 @@ return [
     'view_info' => 'Voir les informations',
     'edit' => 'Modifier',
     'reset_password' => 'Réinitialiser le mot de passe',
-    'marksheet' => 'Relevé de notes',
+    'marksheet' => 'Bulletin',
     'delete' => 'Supprimer',
     //
     'student_profile' => 'Profil de l\'étudiant',
@@ -1059,4 +1059,11 @@ return [
     'day'                    => 'Jour',
     'list'                   => 'Liste',
     'all_day'                => 'Toute la journée',
+    'parent_menu' => 'Espace Parent',
+    'student_menu' => 'Espace Élève',
+    'child_marks' => 'Bulletin',
+    'child_timetable' => 'Emploi du temps',
+    'child_payments' => 'Paiements',
+    'school_notices' => 'Annonces & Événements',
+    'marksheets' => 'Bulletin',
 ];

@@ -1110,4 +1110,11 @@ return [
     'day'                    => 'Day',
     'list'                   => 'List',
     'all_day'                => 'All Day',
+    'parent_menu' => 'Parent Portal',
+    'student_menu' => 'Student Portal',
+    'child_marks' => 'Report Card',
+    'child_timetable' => 'Timetable',
+    'child_payments' => 'Payments',
+    'school_notices' => 'Notices & Events',
+    'marksheets' => 'Marksheet',
 ];
