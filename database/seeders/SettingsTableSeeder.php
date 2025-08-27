@@ -12,7 +12,7 @@ class SettingsTableSeeder extends Seeder
 
         $data = [
             ['type' => 'current_session', 'description' => '2025-2026'],
-            ['type' => 'system_title', 'description' => 'Smart Education'],
+            ['type' => 'system_title', 'description' => 'Smart School'],
             ['type' => 'system_name', 'description' => 'Smart School'],
             ['type' => 'term_begins', 'description' => '01/09/2025'],
             ['type' => 'term_ends', 'description' => '30/06/2026'],

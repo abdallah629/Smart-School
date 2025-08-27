@@ -17,7 +17,7 @@ class UserTypesTableSeeder extends Seeder
             ['title' => 'teacher', 'name' => 'Enseignant', 'level' => 3],
             ['title' => 'parent', 'name' => 'Parent', 'level' => 4],
             ['title' => 'accountant', 'name' => 'Comptable', 'level' => 5],
-            ['title' => 'librarian', 'name' => 'Bibliothécaire', 'level' => 6],
+         // ['title' => 'librarian', 'name' => 'Bibliothécaire', 'level' => 6],
         ];
 
         DB::table('user_types')->insert($data);

@@ -16,13 +16,9 @@ class DormsTableSeeder extends Seeder
         DB::table('dorms')->delete();
 
         $data = [
-            ['name' => 'Internat Garçons'],
-            ['name' => 'Internat Filles'],
             ['name' => 'Internat Primaire'],
             ['name' => 'Internat Collège'],
             ['name' => 'Internat Lycée'],
-            ['name' => 'Internat Espoir'],
-            ['name' => 'Internat Amitié'],
             ['name' => 'Internat Excellence'],
         ];
 

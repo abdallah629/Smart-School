@@ -1,4 +1,5 @@
 <?php
+
 namespace Database\Seeders;
 
 use App\Models\Nationality;
@@ -20,13 +21,15 @@ class NationalitiesTableSeeder extends Seeder
             'Ivoirien',
             'Libérien',
             'Sierra-Léonais',
+            // Pays non limitrophes mais proches par la CEDEAO
             'Gambien',
             'Burkinabé',
             'Mauritanien',
+            // Autres nationalités souvent présentes
             'Français',
             'Américain',
             'Chinois',
-            'Autre' // optionnel pour les nationalités diverses
+            'Autre',
         ];
 
         foreach ($nationals as $n) {

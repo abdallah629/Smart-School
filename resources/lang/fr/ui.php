@@ -333,7 +333,7 @@ return [
     'total_students' => 'Total des Étudiants',
     'total_teachers' => 'Total des Enseignants',
     'total_administrators' => 'Total des Administrateurs',
-    'total_parents' => 'Total des Parents',
+    'total_parents' => 'Total des Parents d\' Élève',
     'school_events_calendar' => 'Calendrier des Événements Scolaires',
     //
     'edit_class' => 'Modifier la Classe',
