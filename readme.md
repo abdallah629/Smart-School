@@ -2,26 +2,6 @@ Système de Gestion Scolaire Laravel
 
 Smart Education est développé pour les institutions éducatives telles que les écoles privée ou public, basé sur Laravel .
 
-CAPTURES D’ÉCRAN
-
-Tableau de bord
-<img src="https://i.ibb.co" alt="dashboard" border="0">
-Connexion
-<img src="https://i.ibb.co/Rh1Bfwk/login.png" alt="login" border="0">
-
-Relevé de notes de l’Élève
-<img src="https://i.ibb.co/GCgv5ZR/marksheet.png" alt="marksheet" border="0">
-
-Paramètres du système
-<img src="https://i.ibb.co/Kmrhw69/system-settings.png" alt="system-settings" border="0">
-
-Impression du relevé de notes
-
-<div style="clear: both"> </div> <img src="https://i.ibb.co/5c1GHCj/capture-20210530-115521-crop.png" alt="print-marksheet">
-
-Impression de la Tableau de notes & relevé de notes
-<img src="https://i.ibb.co/QmscPfn/capture-20210530-115802.png" alt="tabulation-sheet" border="0">
-
 Types de comptes utilisateurs (7 au total) :
 
 Administrateurs (Super Admin & Admin)
