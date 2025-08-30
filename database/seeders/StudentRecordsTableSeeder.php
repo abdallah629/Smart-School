@@ -22,7 +22,7 @@ class StudentRecordsTableSeeder extends Seeder
         $this->createManyStudents(3);
     }
 
-    // Crée un élève spécifique pour tester
+    // Crée un Élève spécifique pour tester
     protected function createSingleStudent()
     {
         $section = Section::first();

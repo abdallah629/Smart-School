@@ -180,7 +180,7 @@ class MarkController extends Controller
 
         return view('pages.support_team.marks.manage', $d);
     }
-
+// Cible 01
     public function update(Request $req, $exam_id, $class_id, $section_id, $subject_id)
     {
         $p = ['exam_id' => $exam_id, 'my_class_id' => $class_id, 'section_id' => $section_id, 'subject_id' => $subject_id, 'year' => $this->year];
@@ -206,7 +206,18 @@ class MarkController extends Controller
 
             /** SubTotal Grade, Remark, Cum, CumAvg**/
 
-            $d['tex'.$exam->term] = $total = $tca + $exm;
+            // --- Nouveau calcul avec coefficient ---
+            $subject = \App\Models\Subject::find($mk->subject_id);
+            $coef = $subject ? $subject->coef : 1;
+            $notes = [$t1, $t2, $exm];
+            $somme_notes_coef = array_sum($notes) * $coef;
+            $somme_coef = $coef * count($notes);
+            $note_finale = $somme_coef > 0 ? $somme_notes_coef / $somme_coef : 0;
+            $d['tex'.$exam->term] = $total = $note_finale;
+            // --- Fin du nouveau calcul ---
+
+            // Si tu veux revenir à l'ancien calcul, décommente la ligne suivante et commente le bloc ci-dessus :
+            // $d['tex'.$exam->term] = $total = $tca + $exm;
 
             if($total > 100){
                 $d['tex'.$exam->term] = $d['t1'] = $d['t2'] = $d['t3'] = $d['t4'] = $d['tca'] = $d['exm'] = NULL;
@@ -244,10 +255,30 @@ class MarkController extends Controller
         unset( $p['subject_id'] );
 
         foreach ($all_st_ids as $st_id) {
-
-            $p['student_id'] =$st_id;
+            $p['student_id'] = $st_id;
+            // Calcul du total général
             $d3['total'] = $this->mark->getExamTotalTerm($exam, $st_id, $class_id, $this->year);
-            $d3['ave'] = $this->mark->getExamAvgTerm($exam, $st_id, $class_id, $section_id, $this->year);
+
+            // Nouveau calcul de la moyenne générale guinéenne
+            $marks = \App\Models\Mark::where([
+                'student_id' => $st_id,
+                'exam_id' => $exam->id,
+                'my_class_id' => $class_id,
+                'year' => $this->year
+            ])->get();
+            $somme_notes_coef = 0;
+            $somme_coef = 0;
+            foreach ($marks as $mark) {
+                $subject = \App\Models\Subject::find($mark->subject_id);
+                $coef = $subject ? $subject->coef : 1;
+                $note = $mark['tex'.$exam->term];
+                if ($note !== null) {
+                    $somme_notes_coef += $note * $coef;
+                    $somme_coef += $coef;
+                }
+            }
+            $d3['ave'] = $somme_coef > 0 ? round($somme_notes_coef / $somme_coef, 2) : 0;
+
             $d3['class_ave'] = $this->mark->getClassAvg($exam, $class_id, $this->year);
             $d3['pos'] = $this->mark->getPos($st_id, $exam, $class_id, $section_id, $this->year);
 
@@ -257,13 +288,28 @@ class MarkController extends Controller
 
        return Qs::jsonUpdateOk();
     }
-
-    public function batch_fix()
+// Fin Cible 
+    public function batch_fix(Request $req)
     {
         $d['exams'] = $this->exam->getExam(['year' => $this->year]);
         $d['my_classes'] = $this->my_class->all();
         $d['sections'] = $this->my_class->getAllSections();
-        $d['selected'] = false;
+
+        // Si l'utilisateur a sélectionné les critères
+        if ($req->has(['exam_id', 'my_class_id', 'section_id'])) {
+            $d['exam_id'] = $req->exam_id;
+            $d['my_class_id'] = $req->my_class_id;
+            $d['section_id'] = $req->section_id;
+            $d['selected'] = true;
+            $d['marks'] = $this->exam->getMark([
+                'exam_id' => $req->exam_id,
+                'my_class_id' => $req->my_class_id,
+                'section_id' => $req->section_id,
+                'year' => $this->year
+            ]);
+        } else {
+            $d['selected'] = false;
+        }
 
         return view('pages.support_team.marks.batch_fix', $d);
     }
@@ -288,7 +334,8 @@ class MarkController extends Controller
         foreach($marks as $mk){
 
             $total = $mk->$tex;
-            $d['grade_id'] = $this->mark->getGrade($total, $class_type->id);
+            $grade = $this->mark->getGrade($total, $class_type->id);
+            $d['grade_id'] = $grade ? $grade->id : NULL;
 
             /*      if($exam->term == 3){
                       $d['cum'] = $this->mark->getSubCumTotal($total, $mk->student_id, $mk->subject_id, $class_id, $this->year);
@@ -341,8 +388,9 @@ class MarkController extends Controller
 
     public function bulk($class_id = NULL, $section_id = NULL)
     {
-        $d['my_classes'] = $this->my_class->all();
-        $d['selected'] = false;
+    $d['my_classes'] = $this->my_class->all();
+    $d['selected'] = false;
+    $d['exr'] = null;
 
         if($class_id && $section_id){
             $d['sections'] = $this->my_class->getAllSections()->where('my_class_id', $class_id);
@@ -353,6 +401,14 @@ class MarkController extends Controller
             $d['selected'] = true;
             $d['my_class_id'] = $class_id;
             $d['section_id'] = $section_id;
+
+            // Ajout de l'enregistrement d'examen pour la classe et la section
+            $wh = [
+                'my_class_id' => $class_id,
+                'section_id' => $section_id,
+                'year' => $this->year
+            ];
+            $d['exr'] = $exr = $this->exam->getRecord($wh)->first();
         }
 
         return view('pages.support_team.marks.bulk', $d);

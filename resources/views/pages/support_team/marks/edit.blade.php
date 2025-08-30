@@ -21,7 +21,7 @@
                 {{-- CA AND EXAMS --}}
                 <td><input title="{{ __('ui.first_ca') }}" min="1" max="20" class="text-center" name="t1_{{ $mk->id }}" value="{{ $mk->t1 }}" type="number"></td>
                 <td><input title="{{ __('ui.second_ca') }}" min="1" max="20" class="text-center" name="t2_{{ $mk->id }}" value="{{ $mk->t2 }}" type="number"></td>
-                <td><input title="{{ __('ui.exam') }}" min="1" max="60" class="text-center" name="exm_{{ $mk->id }}" value="{{ $mk->exm }}" type="number"></td>
+                <td><input title="{{ __('ui.exam') }}" min="1" max="20" class="text-center" name="exm_{{ $mk->id }}" value="{{ $mk->exm }}" type="number"></td>
             </tr>
         @endforeach
         </tbody>

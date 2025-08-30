@@ -24,7 +24,7 @@ class UsersTableSeeder extends Seeder
      */
     protected function createMainUsers()
     {
-        $password = Hash::make('12345678'); // Mot de passe par défaut
+        $password = Hash::make('code'); // Mot de passe par défaut
 
         $users = [
             [

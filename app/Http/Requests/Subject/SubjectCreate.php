@@ -25,6 +25,7 @@ class SubjectCreate extends FormRequest
             'my_class_id' => 'required',
             'teacher_id' => 'required',
             'slug' => 'nullable|string|min:3',
+            'coef' => 'required|integer|min:1',
         ];
     }
 

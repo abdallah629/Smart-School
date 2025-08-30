@@ -185,9 +185,9 @@
                                 <a href="{{ route('marks.index') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['marks.index']) ? 'active' : '' }}">{{ __('ui.marks') }}</a>
                             </li>
 
-                            <li class="nav-item">
+                            {{-- <li class="nav-item">
                                 <a href="{{ route('marks.bulk') }}" class="nav-link {{ in_array(Route::currentRouteName(), ['marks.bulk', 'marks.show']) ? 'active' : '' }}">{{ __('ui.marksheets') }}</a>
-                            </li>
+                            </li> --}}
                         @endif
                     </ul>
                 </li>

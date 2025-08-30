@@ -39,6 +39,14 @@
                         </div>
                     </div>
 
+
+                    <div class="form-group row">
+                        <label for="coef" class="col-lg-3 col-form-label font-weight-semibold">Coefficient <span class="text-danger">*</span></label>
+                        <div class="col-lg-9">
+                            <input id="coef" name="coef" value="{{ $s->coef }}" required type="number" min="1" class="form-control" placeholder="Ex: 2">
+                        </div>
+                    </div>
+
                     <div class="form-group row">
                         <label for="teacher_id" class="col-lg-3 col-form-label font-weight-semibold">{{ __('ui.teacher') }}</label>
                         <div class="col-lg-9">

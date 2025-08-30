@@ -9,7 +9,7 @@ Tableau de bord
 Connexion
 <img src="https://i.ibb.co/Rh1Bfwk/login.png" alt="login" border="0">
 
-Relevé de notes de l’élève
+Relevé de notes de l’Élève
 <img src="https://i.ibb.co/GCgv5ZR/marksheet.png" alt="marksheet" border="0">
 
 Paramètres du système
@@ -19,7 +19,7 @@ Impression du relevé de notes
 
 <div style="clear: both"> </div> <img src="https://i.ibb.co/5c1GHCj/capture-20210530-115521-crop.png" alt="print-marksheet">
 
-Impression de la feuille de tabulation & relevé de notes
+Impression de la Tableau de notes & relevé de notes
 <img src="https://i.ibb.co/QmscPfn/capture-20210530-115802.png" alt="tabulation-sheet" border="0">
 
 Types de comptes utilisateurs (7 au total) :
@@ -86,7 +86,7 @@ Gérer son propre profil
 
 Mettre en ligne des supports pédagogiques
 
--- ÉLÈVE
+-- Élève
 
 Consulter le profil de l’enseignant
 

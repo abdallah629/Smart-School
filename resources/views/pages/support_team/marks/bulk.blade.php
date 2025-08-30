@@ -7,6 +7,7 @@
             </div>
 
             <div class="card-body collapse">
+                @if($exr)
                 <form class="ajax-update" method="post" action="{{ route('marks.skills_update', ['AF', $exr->id]) }}">
                     @csrf @method('PUT')
                     @foreach($skills->where('skill_type', 'AF') as $af)
@@ -27,6 +28,7 @@
                         <button type="submit" class="btn btn-primary">{{ __('ui.submit_form') }} <i class="icon-paperplane ml-2"></i></button>
                     </div>
                 </form>
+                @endif
             </div>
         </div>
     </div>
@@ -39,6 +41,7 @@
             </div>
 
             <div class="card-body collapse">
+                @if($exr)
                 <form class="ajax-update" method="post" action="{{ route('marks.skills_update', ['PS', $exr->id]) }}">
                     @csrf @method('PUT')
                     @foreach($skills->where('skill_type', 'PS') as $ps)
@@ -59,6 +62,7 @@
                         <button type="submit" class="btn btn-primary">{{ __('ui.submit_form') }} <i class="icon-paperplane ml-2"></i></button>
                     </div>
                 </form>
+                @endif
             </div>
         </div>
     </div>
