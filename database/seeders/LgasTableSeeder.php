@@ -18,13 +18,14 @@ class LgasTableSeeder extends Seeder
             ['state_id' => 1, 'name' => 'Dixinn'],
             ['state_id' => 1, 'name' => 'Ratoma'],
             ['state_id' => 1, 'name' => 'Matoto'],
+            ['state_id' => 1, 'name' => 'Matam'],
 
             // Boké
             ['state_id' => 2, 'name' => 'Boké'],
-            ['state_id' => 2, 'name' => 'Kamsar'],
-            ['state_id' => 2, 'name' => 'Sangarédi'],
-            ['state_id' => 2, 'name' => 'Kolaboui'],
             ['state_id' => 2, 'name' => 'Boffa'],
+            ['state_id' => 2, 'name' => 'Fria'],
+            ['state_id' => 2, 'name' => 'Gaoual'],
+            ['state_id' => 2, 'name' => 'Koundara'],
 
             // Kindia
             ['state_id' => 3, 'name' => 'Kindia'],

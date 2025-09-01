@@ -360,7 +360,7 @@ class Qs
 
     public static function getDaysOfTheWeek()
     {
-        return ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'];
+        return ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
     }
 
 }

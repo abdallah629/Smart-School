@@ -79,7 +79,9 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($students as $s)
+                    @foreach($students->sortByDesc(function($s) use ($exr) {
+                        return $exr->where('student_id', $s->user_id)->first()->total ?? 0;
+                    }) as $s)
                         <tr>
                             <td>{{ $loop->iteration }}</td>
                             <td style="text-align: center">{{ $s->user->name }}</td>

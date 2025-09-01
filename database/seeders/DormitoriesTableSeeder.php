@@ -16,14 +16,10 @@ class DormitoriesTableSeeder extends Seeder
         DB::table('dormitories')->delete();
 
         $data = [
-            ['name' => 'Internat Garçons'],
-            ['name' => 'Internat Filles'],
             ['name' => 'Internat Primaire'],
             ['name' => 'Internat Collège'],
             ['name' => 'Internat Lycée'],
-            ['name' => 'Internat Espoir'],       // valeur inspirante
-            ['name' => 'Internat Amitié'],      // valeur sociale
-            ['name' => 'Internat Excellence'],  // valeur éducative
+            ['name' => 'Internat Excellence'],
         ];
 
         DB::table('dormitories')->insert($data);

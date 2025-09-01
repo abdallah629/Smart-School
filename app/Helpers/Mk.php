@@ -25,11 +25,23 @@ class Mk extends Qs
     {
         if($number < 1){ return NULL;}
 
-        $ends = array('th', 'st', 'nd', 'rd', 'th', 'th', 'th', 'th', 'th', 'th');
-        if ((($number % 100) >= 11) && (($number % 100) <= 13))
-            return $number . '<sup>th</sup>';
-        else
-            return $number . '<sup>' . $ends[$number % 10] . '</sup>';
+    // Suffixes ordinaux français : 'ᵉ', 'ᵉʳ', 'ᵉ', 'ᵉ', ...
+        if(!$number || $number < 1){ return NULL;}
+
+        // Gestion du cas ex-aequo (ex : 2ex)
+        $is_ex = false;
+        if (is_string($number) && strpos($number, 'ex') !== false) {
+            $is_ex = true;
+            $num = intval($number);
+        } else {
+            $num = intval($number);
+        }
+
+        $ends = array('ᵉ', 'ᵉʳ', 'ᵉ', 'ᵉ', 'ᵉ', 'ᵉ', 'ᵉ', 'ᵉ', 'ᵉ', 'ᵉ');
+        $suffix = ($num == 1) ? $ends[1] : $ends[0];
+        $result = $num . '<sup>' . $suffix . '</sup>';
+        if($is_ex) $result .= ' ex';
+        return $result;
     }
 
     /*Get Subject Total Per Term*/

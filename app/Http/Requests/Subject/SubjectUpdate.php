@@ -25,6 +25,7 @@ class SubjectUpdate extends FormRequest
             'my_class_id' => 'required',
             'teacher_id' => 'sometimes|nullable|exists:users,id',
             'slug' => 'nullable|string|min:3',
+            'coef' => 'required|integer|min:1',
         ];
     }
 

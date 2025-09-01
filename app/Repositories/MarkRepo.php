@@ -141,23 +141,36 @@ class MarkRepo
 
     public function getPos($st_id, $exam, $class_id, $sec_id, $year)
     {
-        $d = ['student_id' => $st_id, 'exam_id' => $exam->id, 'my_class_id' => $class_id, 'section_id' => $sec_id, 'year' => $year ]; $all_mks = [];
+
+        $d = ['exam_id' => $exam->id, 'my_class_id' => $class_id, 'section_id' => $sec_id, 'year' => $year ];
         $tex = 'tex'.$exam->term;
-
-        $my_mk = Mark::where($d)->select($tex)->sum($tex);
-
-        /*if($exam->term == 3){
-            $my_mk = Mark::where($d)->select('cum')->sum('cum');
-        }*/
-
-        unset($d['student_id']);
         $mk = Mark::where($d);
         $students = $mk->select('student_id')->distinct()->get();
+        $totaux = [];
         foreach($students as $s){
-            $all_mks[] = $this->getExamTotalTerm($exam, $s->student_id, $class_id, $year);
+            $totaux[$s->student_id] = $this->getExamTotalTerm($exam, $s->student_id, $class_id, $year);
         }
-        rsort($all_mks);
-        return array_search($my_mk, $all_mks) + 1;
+        arsort($totaux); // Tri décroissant par total
+
+        // Classement avec gestion des ex-aequo
+        $rangs = [];
+        $last_total = null;
+        $rang = 0;
+        $ex_count = 0;
+        foreach($totaux as $student_id => $total){
+            if($last_total === null || $total < $last_total){
+                $rang++;
+                $ex_count = 0;
+                $rangs[$student_id] = $rang;
+            }else{
+                $ex_count++;
+                $rangs[$student_id] = $rang . 'ex';
+            }
+            $last_total = $total;
+        }
+
+        // Retourne le rang du student_id demandé
+        return $rangs[$st_id] ?? null;
     }
 
     public function getSubjectIDs($data)
